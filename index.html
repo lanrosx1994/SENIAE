@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            overflow: hidden;
+            height: 100vh;
+        }
+        .container {
+            display: flex;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            height: 100vh;
+            width: 100vw;
+            scroll-behavior: smooth;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+        }
+        .container::-webkit-scrollbar {
+            display: none;
+        }
+        .page {
+            min-width: 100vw;
+            min-height: 100vh;
+            scroll-snap-align: start;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 2rem;
+            padding: 20px;
+            position: relative;
+            color: #333;
+        }
+        /* 10个页面使用10种不同背景色 */
+        .page:nth-child(1) { background: #0d131a; }
+        .page:nth-child(2) { background: #d1ecf1; }
+        .page:nth-child(3) { background: #d4edda; }
+        .page:nth-child(4) { background: #ffe5d0; }
+        .page:nth-child(5) { background: #cce5ff; }
+        .page:nth-child(6) { background: #f0d6ff; }
+        .page:nth-child(7) { background: #ffd6d6; }
+        .page:nth-child(8) { background: #d6f5d6; }
+        .page:nth-child(9) { background: #fff5d6; }
+        .page:nth-child(10) { background: #d6f0ff; }
+
+        /* 底部导航圆点 */
+        .dots {
+            position: fixed;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 12px;
+            padding: 8px 18px;
+            background: rgba(0, 0, 0, 0.35);
+            border-radius: 30px;
+            backdrop-filter: blur(2px);
+            z-index: 100;
+            pointer-events: auto;
+            flex-wrap: nowrap;
+            max-width: 95vw;
+            overflow-x: auto;
+            scrollbar-width: none;
+        }
+        .dots::-webkit-scrollbar {
+            display: none;
+        }
+        .dots button {
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            border: none;
+            background: rgba(255, 255, 255, 0.5);
+            cursor: pointer;
+            padding: 0;
+            transition: background-color 0.3s, transform 0.3s;
+            outline: none;
+            pointer-events: auto;
+            flex-shrink: 0;
+        }
+        .dots button.active {
+            background: #ffffff;
+            transform: scale(1.4);
+            box-shadow: 0 0 8px rgba(255, 255, 255, 0.6);
+        }
+    </style>
+</head>
+<body>
+    <div class="container" id="container">
+        <!-- 第一个页面：添加三层盒子 -->
+        <div class="page" style="flex-direction: column; justify-content: center; align-items: center;">
+            <div style="font-size: 2rem; margin-bottom: 20px;"></div>
+            <div style="background: #0d131a; padding: 20px; border-radius: 12px; width: 80%; margin: 10px 0; box-shadow: 0 4px 6px rgba(0,0,0,0.1); text-align: center; font-size: 1.5rem;"><img src="SENIAE_LOGO_Light_Background" alt="Logo" width="200" height="100"></div>
+            <div style="background: #b3d9ff; padding: 20px; border-radius: 12px; width: 80%; margin: 10px 0; box-shadow: 0 4px 6px rgba(0,0,0,0.1); text-align: center; font-size: 1.5rem;">第二层盒子</div>
+            <div style="background: #b3ffb3; padding: 20px; border-radius: 12px; width: 80%; margin: 10px 0; box-shadow: 0 4px 6px rgba(0,0,0,0.1); text-align: center; font-size: 1.5rem;">第三层盒子</div>
+        </div>
+
+        <!-- 其余 9 个页面保持不变 -->
+        <div class="page">📄 第 2 页</div>
+        <div class="page">📄 第 3 页</div>
+        <div class="page">📄 第 4 页</div>
+        <div class="page">📄 第 5 页</div>
+        <div class="page">📄 第 6 页</div>
+        <div class="page">📄 第 7 页</div>
+        <div class="page">📄 第 8 页</div>
+        <div class="page">📄 第 9 页</div>
+        <div class="page">📄 第 10 页</div>
+    </div>
+
+    <div class="dots" id="dots">
+        <button data-index="0" class="active"></button>
+        <button data-index="1"></button>
+        <button data-index="2"></button>
+        <button data-index="3"></button>
+        <button data-index="4"></button>
+        <button data-index="5"></button>
+        <button data-index="6"></button>
+        <button data-index="7"></button>
+        <button data-index="8"></button>
+        <button data-index="9"></button>
+    </div>
+
+    <script>
+        (function() {
+            const container = document.getElementById('container');
+            const dots = document.querySelectorAll('.dots button');
+            const pages = document.querySelectorAll('.page');
+            const total = pages.length;
+
+            function getCurrentIndex() {
+                const scrollLeft = container.scrollLeft;
+                let minDiff = Infinity;
+                let idx = 0;
+                pages.forEach((page, i) => {
+                    const diff = Math.abs(page.offsetLeft - scrollLeft);
+                    if (diff < minDiff) {
+                        minDiff = diff;
+                        idx = i;
+                    }
+                });
+                return idx;
+            }
+
+            function updateDots(index) {
+                dots.forEach((dot, i) => {
+                    dot.classList.toggle('active', i === index);
+                });
+            }
+
+            function scrollToPage(index) {
+                if (index < 0 || index >= total) return;
+                const page = pages[index];
+                container.scrollTo({
+                    left: page.offsetLeft,
+                    behavior: 'smooth'
+                });
+            }
+
+            container.addEventListener('scroll', function() {
+                const idx = getCurrentIndex();
+                updateDots(idx);
+            });
+
+            dots.forEach((dot) => {
+                dot.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    const index = parseInt(this.getAttribute('data-index'), 10);
+                    scrollToPage(index);
+                });
+            });
+
+            window.addEventListener('load', function() {
+                container.scrollLeft = 0;
+                updateDots(0);
+            });
+        })();
+    </script>
+</body>
+</html>
