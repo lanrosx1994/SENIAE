@@ -12,7 +12,9 @@
         body {
             overflow: hidden;
             height: 100vh;
+            font-family: "方正兰亭超细黑简体", "PingFang SC", "Microsoft YaHei", sans-serif;
         }
+
         .container {
             display: flex;
             overflow-x: auto;
@@ -22,10 +24,13 @@
             scroll-behavior: smooth;
             scrollbar-width: none;
             -ms-overflow-style: none;
+            cursor: pointer;
+            font-family: "Microsoft Yi Baiti";
         }
         .container::-webkit-scrollbar {
             display: none;
         }
+
         .page {
             min-width: 100vw;
             min-height: 100vh;
@@ -37,94 +42,743 @@
             padding: 20px;
             position: relative;
             color: #333;
+            user-select: none;
         }
-        /* 10个页面使用10种不同背景色 */
-        .page:nth-child(1) { background: #0d131a; }
-        .page:nth-child(2) { background: #d1ecf1; }
-        .page:nth-child(3) { background: #d4edda; }
-        .page:nth-child(4) { background: #ffe5d0; }
-        .page:nth-child(5) { background: #cce5ff; }
-        .page:nth-child(6) { background: #f0d6ff; }
-        .page:nth-child(7) { background: #ffd6d6; }
-        .page:nth-child(8) { background: #d6f5d6; }
-        .page:nth-child(9) { background: #fff5d6; }
-        .page:nth-child(10) { background: #d6f0ff; }
 
-        /* 底部导航圆点 */
-        .dots {
-            position: fixed;
-            bottom: 10px;
-            left: 50%;
-            transform: translateX(-50%);
+        .page:nth-child(1) {
+            background: #0d131a;
+        }
+        /* -----------------------------------------------------------1page */
+        .page-first {
             display: flex;
-            gap: 12px;
-            padding: 8px 18px;
-            background: rgba(0, 0, 0, 0.35);
-            border-radius: 30px;
-            backdrop-filter: blur(2px);
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+            padding: 0 !important;
+            height: 100vh;
+            background: #0d131a;
+            min-height: 100vh;
+        }
+        .page-first .logo-wrapper {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            min-height: 0;
+        }
+        .page-first .logo-box {
+            background: #0d131a;
+            padding: 20px;
+            width: 98%;
+            text-align: center;
+        }
+        .page-first .logo-box img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+        }
+        .page-first .x-box {
+            background: #0d131a;
+            padding: 0px;
+            width: 92%;
+            text-align: center;
+            font-size: 1.5rem;
+            color: #fff;
+            flex-shrink: 0;
+        }
+        #box1 {
+            margin-bottom: 0px;
+            border-bottom: 1px solid rgba(208, 213, 217, 0.1);
+        }
+        #box2 {
+            margin-bottom: 0px;
+            border-bottom: 1px solid rgba(208, 213, 217, 0.1);
+        }
+        #box2 h3,
+        #box3 h2 {
+            margin-right: 10vw;
+            width: 100px;
+        }
+        #box3 {
+            margin-bottom: 40px;
+        }
+        #h3-2,
+        #h3-3 {
+            margin-left: 0;
+            text-align: right;
+            float: right;
+        }
+        .page:nth-child(2) {
+            background: #0d131a;
+        }
+        /* -----------------------------------------------------------2page */
+        .cj1 {
+            position: absolute;
+            z-index: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            right: -250px;
+            bottom: -300px;
+        }
+        .p2-0 {
+            width: 600px;
+            position: absolute;
+            z-index: 1;
+            flex-direction: column;
+            display: flex;
+            pointer-events: auto;
+            left: 180px;
+            bottom: 180px;
+            background-color: rgba(0, 0, 0, 0.0)
+        }
+        .p2-0 button {
+            border-right: none;
+            border-left: none;
+            border-top: none;
+            border-bottom: 1px solid transparent;
+            border-image: linear-gradient(to right, rgba(208, 213, 217, 0.10), rgba(208, 213, 217, 0)) 1;
+            background: rgba(0, 0, 0, 0);
+        }
+        .p2-0 button h3 {
+            margin-top: 20px;
+            margin-bottom: 5px;
+        }
+        .p2-0 button h2 {
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+        #p2-1 {
+            margin-bottom: 25px;
+        }
+        .page:nth-child(3) {
+            background: #0d131a;
+        }
+        /* -----------------------------------------------------------3page */
+        .cj2 {
+            flex-direction: column;
+            display: flex;
+            position: absolute;
+            z-index: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            left: 70px;
+        }
+        .cj3 {
+            flex-direction: column;
+            display: flex;
+            position: absolute;
+            z-index: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            right: 70px;
+        }
+        .cj3 h3,
+        .cj2 h3 {
+            margin-top: 0px;
+            margin-right: auto;
+            margin-left: auto;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .b3-1 {
+            flex-direction: column;
+            display: flex;
+            pointer-events: auto;
+            position: absolute;
+            left: 70px;
+            width: 45.5%;
+            height: 560px;
+            background-color: rgba(0, 0, 0, 0.0);
+        }
+        .b3-1 button {
+            border-right: none;
+            border-left: none;
+            border-top: none;
+            border-bottom: 1px solid transparent;
+            border-image: linear-gradient(to right, rgba(208, 213, 217, 0.10), rgba(208, 213, 217, 0)) 1;
+            background: rgba(0, 0, 0, 0);
+        }
+        .b3-1 button h3 {
+            margin-top: 20px;
+            margin-bottom: 5px;
+            margin-right: 0px;
+            text-align: right;
+            float: right;
+            width: auto;
+        }
+        #b3-11 {
+            margin-left: 405px;
+        }
+        #b3-12 {
+            margin-left: 47px;
+        }
+        #b3-13 {
+            margin-top: 185px;
+            margin-left: 260px;
+        }
+        #b3-14 {
+            height: 25px;
+            margin-top: 0px;
+            margin-left: 250px;
+        }
+        #b3-14 h3 {
+            margin-top: 0px;
+            margin-bottom: 0px;
+        }
+        #b3-15 {
+            margin-top: -5px;
+            margin-left: 255px;
+        }
+        #b3-16 {
+            margin-left: 250px;
+        }
+        .b3-2 {
+            flex-direction: column;
+            display: flex;
+            pointer-events: auto;
+            position: absolute;
+            right: 70px;
+            width: 45.5%;
+            height: 560px;
+            background-color: rgba(0, 0, 0, 0.0);
+        }
+        .b3-2 button {
+            border-right: none;
+            border-left: none;
+            border-top: none;
+            border-bottom: 1px solid transparent;
+            border-image: linear-gradient(to right, rgba(208, 213, 217, 0), rgba(208, 213, 217, 0.1)) 1;
+            background: rgba(0, 0, 0, 0);
+        }
+        .b3-2 button h3 {
+            margin-top: 20px;
+            margin-bottom: 5px;
+            margin-right: 0px;
+            text-align: left;
+            float: left;
+            width: auto;
+        }
+        #b3-21 {
+            margin-top: 232px;
+            margin-right: 265px;
+        }
+        .page:nth-child(4) {
+            background: #FFFFFF;
+        }
+        /* -----------------------------------------------------------4page */
+        .cj4 {
+            position: absolute;
+            z-index: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            right: 150px;
+        }
+        .p4-0 {
+            width: 750px;
+            position: absolute;
+            z-index: 1;
+            flex-direction: column;
+            display: flex;
+            pointer-events: auto;
+            left: 10vw;
+            bottom: 10vw;
+            background-color: rgba(0, 0, 0, 0.0)
+        }
+        .p4-0 button {
+            border-right: none;
+            border-left: none;
+            border-top: none;
+            border-bottom: 1px solid transparent;
+            border-image: linear-gradient(to right, rgba(13, 19, 26, 0.20), rgba(13, 19, 26, 0)) 1;
+            background: rgba(0, 0, 0, 0);
+        }
+        .p4-0 button h3 {
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+            width: 180px;
+            margin-top: 20px;
+            margin-bottom: 5px;
+            margin-right: 10vw;
+            color: rgba(13, 19, 26, 1.00);
+        }
+        .p4-0 button h2 {
+            margin-top: 20px;
+            margin-bottom: 10px;
+            color: rgba(13, 19, 26, 1.00);
+        }
+        .p4-2 {
+            margin-top: 30px;
+        }
+        .p4-2 h3 {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .p4-2 h3::before {
+            margin-left: -20px;
+            content: '';
+            display: block;
+            flex-shrink: 0;
+            width: 3px;
+            height: 3px;
+            border: 2.5px solid #800020;
+            border-radius: 50%;
+            background-color: transparent;
+        }
+        .p4-4 h3 {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .p4-4 h3::before {
+            margin-left: -20px;
+            content: '';
+            display: block;
+            flex-shrink: 0;
+            width: 3px;
+            height: 3px;
+            border: 2.5px solid #800020;
+            border-radius: 50%;
+            background-color: transparent;
+        }
+        .page:nth-child(5) {
+            background: #FFFFFF;
+        }
+        /* -----------------------------------------------------------5page */
+        .page:nth-child(6) {
+            background: #FFFFFF;
+        }
+        /* -----------------------------------------------------------6page */
+        .page:nth-child(7) {
+            background: #FFFFFF;
+        }
+        /* -----------------------------------------------------------7page */
+        .page:nth-child(8) {
+            background: #FFFFFF;
+        }
+        /* -----------------------------------------------------------8page */
+        .page:nth-child(9) {
+            background: #FFFFFF;
+        }
+        /* -----------------------------------------------------------9page */
+        .page:nth-child(10) {
+            background: #0d131a;
+        }
+        /* ---------------------------------------------------------10page */
+        .p10 {
+            flex-direction: column;
+            display: flex;
+            gap: 5px;
+        }
+        .p10 h2,
+        .p10 h3 {
+            text-align: center;
+            width: auto;
+            margin: 0;
+        }
+        #AE {
+            font-size: 1.4rem;
+            font-family: "Microsoft Yi Baiti";
+        }
+        h1 {
+            font-family: "方正兰亭超细黑简体";
+            font-size: 1.8rem;
+            font-weight: normal;
+            margin-top: 0;
+            margin-right: 0;
+            margin-left: 0;
+            margin-bottom: 0.5em;
+            color: #D0D5D9;
+            text-align: left;
+            white-space: pre-wrap;
+        }
+        h2 {
+            font-family: "方正兰亭超细黑简体";
+            font-size: 1rem;
+            font-weight: normal;
+            margin-top: 25px;
+            margin-left: 0;
+            margin-bottom: 1em;
+            color: #D0D5D9;
+            text-align: left;
+            white-space: pre-wrap;
+            letter-spacing: 0em;
+            float: left;
+        }
+        h3 {
+            font-family: "方正兰亭超细黑简体";
+            font-size: 0.8rem;
+            font-weight: normal;
+            margin-top: 50px;
+            margin-left: 0;
+            margin-bottom: 15px;
+            color: rgba(208, 213, 217, 0.3);
+            text-align: left;
+            white-space: pre-wrap;
+            line-height: 1.5em;
+            float: left;
+        }
+        h4 {
+            width: 60px;
+            font-family: "方正兰亭超细黑简体";
+            font-size: 0.8rem;
+            font-weight: normal;
+            margin-top: -3px;
+            margin-left: 10px;
+            margin-bottom: 15px;
+            color: rgba(208, 213, 217, 0.0);
+            text-align: left;
+            white-space: pre-wrap;
+            line-height: 1.5em;
+            float: left;
+            transition: color 0.5s ease;
+        }
+
+        /* ===== ★★★ 导航栏样式（自动隐藏 + 颜色自适应） ★★★ ===== */
+        .dots {
+            width: 100px;
+            position: fixed;
+            right: 0px;
+            top: 250px;
+            transform: translateY(-50%);
+            flex-direction: column;
+            padding: 8px 0px;
+            background: rgba(0, 0, 0, 0);
             z-index: 100;
             pointer-events: auto;
             flex-wrap: nowrap;
-            max-width: 95vw;
             overflow-x: auto;
             scrollbar-width: none;
+            transition: opacity 0.45s ease, transform 0.45s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            opacity: 1;
+            transform: translateY(-50%) translateX(0);
         }
         .dots::-webkit-scrollbar {
             display: none;
         }
+
+        .dots.hidden {
+            opacity: 0;
+            transform: translateY(-50%) translateX(30px);
+            pointer-events: none;
+        }
+
+        /* 基础样式（深色背景适用） */
         .dots button {
-            width: 14px;
-            height: 14px;
-            border-radius: 50%;
-            border: none;
-            background: rgba(255, 255, 255, 0.5);
+            height: 30px;
+            border-right: none;
+            border-bottom: none;
+            border-top: none;
+            background: rgba(0, 0, 0, 0.0);
             cursor: pointer;
-            padding: 0;
-            transition: background-color 0.3s, transform 0.3s;
+            transition: margin-left 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                border-left-color 0.5s ease,
+                background-color 0.3s ease;
             outline: none;
             pointer-events: auto;
             flex-shrink: 0;
+            border-left-width: 1px;
+            border-left-color: rgba(208, 213, 217, 0.1);
+            margin-top: 10px;
+            margin-left: 35px;
         }
         .dots button.active {
-            background: #ffffff;
-            transform: scale(1.4);
-            box-shadow: 0 0 8px rgba(255, 255, 255, 0.6);
+            margin-left: 0px;
+            border-left-color: rgba(208, 213, 217, 0.5);
+        }
+        .dots button.active h4 {
+            color: rgba(208, 213, 217, 1.0);
+        }
+
+        /* ★ 浅色背景下的导航样式（第4~9页） */
+        .dots.light button {
+            border-left-color: rgba(13, 19, 26, 0.15);
+        }
+        .dots.light button h4 {
+            color: rgba(13, 19, 26, 0.25);
+        }
+        .dots.light button.active {
+            border-left-color: rgba(13, 19, 26, 0.6);
+        }
+        .dots.light button.active h4 {
+            color: rgba(13, 19, 26, 0.9);
+        }
+
+        .page:not(.page-first) {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 2rem;
+            padding: 20px;
+            flex-direction: column;
+            gap: 12px;
+        }
+        .page:not(.page-first) .page-label {
+            font-size: 1.2rem;
+            opacity: 0.5;
+            font-weight: 300;
+            letter-spacing: 2px;
+        }
+        .page:not(.page-first) .page-number {
+            font-size: 4rem;
+            font-weight: 200;
+            opacity: 0.15;
+        }
+        .p9 img {
+            max-height: 100vh;
+            width: auto;
+        }
+        /* 响应式微调 */
+        @media (max-width: 768px) {
+            .dots {
+                top: 180px;
+                width: 70px;
+            }
+            .dots button {
+                margin-left: 20px;
+                height: 24px;
+            }
+            .dots button h4 {
+                font-size: 0.6rem;
+                width: 40px;
+                margin-left: 6px;
+            }
+            .dots.hidden {
+                transform: translateY(-50%) translateX(20px);
+            }
+            .p2-0 {
+                left: 20px;
+                bottom: 20px;
+                width: 70%;
+            }
+            .cj1 img {
+                height: 80vh;
+            }
+            .cj2 img,
+            .cj3 img {
+                height: 40vh;
+            }
+            .cj2,
+            .cj3 {
+                left: 10px;
+                right: 10px;
+            }
+            .b3-1,
+            .b3-2 {
+                width: 44%;
+                left: 10px;
+                right: 10px;
+                height: auto;
+            }
+            #b3-11,
+            #b3-12,
+            #b3-13,
+            #b3-14,
+            #b3-15,
+            #b3-16,
+            #b3-21 {
+                margin-left: 0 !important;
+                margin-right: 0 !important;
+                margin-top: 10px !important;
+            }
+            .b3-1 button h3,
+            .b3-2 button h3 {
+                float: none !important;
+                text-align: left !important;
+            }
+            .cj4 img {
+                height: 40vh;
+            }
+            .cj4 {
+                right: 10px;
+            }
+            .p4-0 {
+                width: 90%;
+                left: 5vw;
+                bottom: 5vw;
+            }
+            .p4-0 button h3 {
+                width: 120px;
+                font-size: 0.7rem;
+            }
         }
     </style>
 </head>
 <body>
+
     <div class="container" id="container">
-        <!-- 第一个页面：添加三层盒子 -->
-        <div class="page" style="flex-direction: column; justify-content: center; align-items: center;">
-            <div style="font-size: 2rem; margin-bottom: 20px;"></div>
-            <div style="background: #0d131a; padding: 20px; border-radius: 12px; width: 80%; margin: 10px 0; box-shadow: 0 4px 6px rgba(0,0,0,0.1); text-align: center; font-size: 1.5rem;"><img src="SENIAE_LOGO_Light_Background" alt="Logo" width="200" height="100"></div>
-            <div style="background: #b3d9ff; padding: 20px; border-radius: 12px; width: 80%; margin: 10px 0; box-shadow: 0 4px 6px rgba(0,0,0,0.1); text-align: center; font-size: 1.5rem;">第二层盒子</div>
-            <div style="background: #b3ffb3; padding: 20px; border-radius: 12px; width: 80%; margin: 10px 0; box-shadow: 0 4px 6px rgba(0,0,0,0.1); text-align: center; font-size: 1.5rem;">第三层盒子</div>
+        <!-- ===================== PAGE 0 ===================== -->
+        <div class="page page-first">
+            <div class="logo-wrapper">
+                <div class="logo-box">
+                    <img src="https://lanrosx1994.github.io/SENIAE/SENIAE_LOGO_Light_Background.svg" alt="Logo" width="400" height="100">
+                </div>
+            </div>
+            <div id="box1" class="x-box">
+                <h1>使用手册  USER MANUAL</h1>
+            </div>
+            <div id="box2" class="x-box">
+                <h3>产品名称<br>Product Name</h3>
+                <h3>产品ID<br>Product ID</h3>
+                <h3>编制<br>Reviewer</h3>
+                <h3>审核<br>Version</h3>
+                <h3>核准<br>Approver</h3>
+                <h3 id="h3-2" style="margin-right: 0;">版本<br>Version</h3>
+            </div>
+            <div id="box3" class="x-box">
+                <h2>初 境  Pulse</h2>
+                <h2>DY_001</h2>
+                <h2>Lanros</h2>
+                <h2>Ling</h2>
+                <h2>Yang</h2>
+                <h2 id="h3-3" style="margin-right: 0;">V 1.0</h2>
+            </div>
         </div>
 
-        <!-- 其余 9 个页面保持不变 -->
-        <div class="page">📄 第 2 页</div>
-        <div class="page">📄 第 3 页</div>
-        <div class="page">📄 第 4 页</div>
-        <div class="page">📄 第 5 页</div>
-        <div class="page">📄 第 6 页</div>
-        <div class="page">📄 第 7 页</div>
-        <div class="page">📄 第 8 页</div>
-        <div class="page">📄 第 9 页</div>
-        <div class="page">📄 第 10 页</div>
+        <!-- ===================== PAGE 1 ===================== -->
+        <div class="page">
+            <div class="cj1">
+                <img src="https://lanrosx1994.github.io/SENIAE/SENIAE_CJ_PLUSE.svg" alt="PULSE-0" height="1350px">
+            </div>
+            <div class="p2-0">
+                <button id="p2-1" data-index="2"><h2>初 境  Pulse</h2></button>
+                <button data-index="3"><h3>开 关  On-off</h3></button>
+                <button data-index="4"><h3>伸 缩  Intensity</h3></button>
+                <button data-index="5"><h3>震 动  Vibration</h3></button>
+                <button data-index="6"><h3>爆 发  Explosion</h3></button>
+                <button data-index="7"><h3>充 电  Charge</h3></button>
+                <button data-index="8"><h3>参 数  Parameter</h3></button>
+            </div>
+        </div>
+
+        <!-- ===================== PAGE 2 ===================== -->
+        <div class="page">
+            <div class="cj2">
+                <h3>正 面<br>Front</h3>
+                <img src="https://lanrosx1994.github.io/SENIAE/SENIAE_CJ_PULSE_Front.svg" alt="PULSE-1" height="600px">
+            </div>
+            <div class="b3-1">
+                <button id="b3-11" data-index="3"><h3>Water filling port  出/入水口</h3></button>
+                <button id="b3-12" data-index="4"><h3>Water filling port  出/入水口</h3></button>
+                <button id="b3-13" data-index="5"><h3>Vibration button  震动按钮</h3></button>
+                <button id="b3-14" data-index="6"><h3>LED light     LED灯</h3></button>
+                <button id="b3-15" data-index="7"><h3>On-Off button  开关按钮</h3></button>
+                <button id="b3-16" data-index="8"><h3>Intensity button  伸缩按钮</h3></button>
+            </div>
+            <div class="cj3">
+                <h3>背 面<br>Back</h3>
+                <img src="https://lanrosx1994.github.io/SENIAE/SENIAE_CJ_PULSE_Back.svg" alt="PULSE-1" height="600px">
+            </div>
+            <div class="b3-2">
+                <button id="b3-21" data-index="9"><h3>充电口  Charging port</h3></button>
+            </div>
+        </div>
+
+        <!-- ===================== PAGE 3 ===================== -->
+        <div class="page">
+            <div class="cj4">
+                <img src="https://lanrosx1994.github.io/SENIAE/SENIAE_CJ_PULSE_On_off.svg" alt="PULSE-0" height="600px">
+            </div>
+            <div class="p4-0">
+                <button class="p4-1"><h2>开 关  On-off</h2></button>
+                <button class="p4-2"><h3>开 机</h3><h3>Turn on</h3></button>
+                <button class="p4-3" style="border-bottom: 0px solid transparent;"><h3 style="margin-top: 5px;color: rgba(13,19,26,0.50);">关机状态下，长按中间电源按钮2S后开机，LED灯常亮；</h3><h3 style="margin-top: 5px;color: rgba(13,19,26,0.50);width: 250px;">When off, press and hold the middle power button for 2s to start up; the LED stays lit.</h3></button>
+                <button class="p4-4"><h3>关 机</h3><h3>Power off</h3></button>
+                <button class="p4-5" style="border-bottom: 0px solid transparent;"><h3 style="margin-top: 5px;color: rgba(13,19,26,0.50);">开机状态下，长按中间电源按钮2S后关机，LED灯熄灭；</h3><h3 style="margin-top: 5px;color: rgba(13,19,26,0.50);width: 250px;">When on, long press the middle power button for 2s to shut down; the LED will go off.</h3></button>
+            </div>
+        </div>
+
+        <!-- ===================== PAGE 4 ===================== -->
+        <div class="page">
+            <div class="cj4">
+                <img src="https://lanrosx1994.github.io/SENIAE/SENIAE_CJ_PULSE_Intensity.svg" alt="PULSE-0" height="600px">
+            </div>
+            <div class="p4-0">
+                <button class="p4-1"><h2>伸 缩  Intensity</h2></button>
+                <button class="p4-2"><h3>开启伸缩</h3><h3>Enable intensity</h3></button>
+                <button class="p4-3" style="border-bottom: 0px solid transparent;"><h3 style="margin-top: 5px;color: rgba(13,19,26,0.50);">开机状态下，短按伸缩按钮<br>3档强度依次切换；</h3><h3 style="margin-top: 5px;color: rgba(13,19,26,0.50);width: 250px;">When powered on, short-press the retractable key to cycle through three intensity levels.</h3></button>
+                <button class="p4-4"><h3>关闭伸缩</h3><h3>Disable intensity</h3></button>
+                <button class="p4-5" style="border-bottom: 0px solid transparent;"><h3 style="margin-top: 5px;color: rgba(13,19,26,0.50);">启动状态下，长按伸缩按钮<br>2秒，停止伸缩；</h3><h3 style="margin-top: 5px;color: rgba(13,19,26,0.50);width: 250px;">When activated, long-press the telescopic button for 2s to halt telescoping.</h3></button>
+            </div>
+        </div>
+
+        <!-- ===================== PAGE 5 ===================== -->
+        <div class="page">
+            <div class="cj4">
+                <img src="https://lanrosx1994.github.io/SENIAE/SENIAE_CJ_PULSE_Vibration.svg" alt="PULSE-0" height="600px">
+            </div>
+            <div class="p4-0">
+                <button class="p4-1"><h2>震 动  Vibration</h2></button>
+                <button class="p4-2"><h3>开启震动</h3><h3>Enable vibration</h3></button>
+                <button class="p4-3" style="border-bottom: 0px solid transparent;"><h3 style="margin-top: 5px;color: rgba(13,19,26,0.50);">开机状态下，短按震动按钮<br>5档强度依次切换；</h3><h3 style="margin-top: 5px;color: rgba(13,19,26,0.50);width: 250px;">When powered on, short-press the vibration button to cycle through 5 intensity levels.</h3></button>
+                <button class="p4-4"><h3>关闭震动</h3><h3>Disable vibration</h3></button>
+                <button class="p4-5" style="border-bottom: 0px solid transparent;"><h3 style="margin-top: 5px;color: rgba(13,19,26,0.50);">启动状态下，长按震动按钮<br>2秒，停止震动；</h3><h3 style="margin-top: 5px;color: rgba(13,19,26,0.50);width: 250px;">When activated, press and hold the vibration button for 2 seconds to stop vibration.</h3></button>
+            </div>
+        </div>
+
+        <!-- ===================== PAGE 6 ===================== -->
+        <div class="page">
+            <div class="cj4">
+                <img src="https://lanrosx1994.github.io/SENIAE/SENIAE_CJ_PULSE_On_off.svg" alt="PULSE-0" height="600px">
+            </div>
+            <div class="p4-0">
+                <button class="p4-1"><h2>爆 发  Explosion</h2></button>
+                <button class="p4-2"><h3>开启爆发</h3><h3>Enable explosion</h3></button>
+                <button class="p4-3" style="border-bottom: 0px solid transparent;"><h3 style="margin-top: 5px;color: rgba(13,19,26,0.50);">开机状态下，短按开关按钮<br>伸缩与震动开启最强档位；</h3><h3 style="margin-top: 5px;color: rgba(13,19,26,0.50);width: 250px;">When powered on, briefly press the power button to set both intensity and vibration to the highest level.</h3></button>
+                <button class="p4-4"><h3>关闭爆发</h3><h3>Disable explosion</h3></button>
+                <button class="p4-5" style="border-bottom: 0px solid transparent;"><h3 style="margin-top: 5px;color: rgba(13,19,26,0.50);">启动状态下，长按开关按钮<br>2秒，停止并关机；</h3><h3 style="margin-top: 5px;color: rgba(13,19,26,0.50);width: 250px;">When activated, press and hold the power button for 2 seconds to stop all functions and power off.</h3></button>
+            </div>
+        </div>
+
+        <!-- ===================== PAGE 7 ===================== -->
+        <div class="page">
+            <div class="cj4" style="flex-direction:column; gap:10px; right:10px;">
+                <img src="https://lanrosx1994.github.io/SENIAE/SENIAE_CJ_PULSE_Charge.svg" alt="PULSE-0" height="300px">
+                <img src="https://lanrosx1994.github.io/SENIAE/SENIAE_CJ_PULSE_LED_light.svg" alt="PULSE-0" height="300px">
+            </div>
+            <div class="p4-0">
+                <button class="p4-1"><h2>充 电  Charge</h2></button>
+                <button class="p4-2"><h3>LED灯</h3><h3>LED light</h3></button>
+                <button class="p4-3" style="border-bottom: 0px solid transparent;"><h3 style="margin-top: 5px;color: rgba(13,19,26,0.50);">开机状态下，充电时指示灯<br>闪烁，电量充满灯光常亮；</h3><h3 style="margin-top: 5px;color: rgba(13,19,26,0.50);width: 250px;">When on, the indicator flashes while charging and stays solid when the battery is full.</h3></button>
+                <button class="p4-4"><h3>关闭爆发</h3><h3>Disable explosion</h3></button>
+                <button class="p4-5" style="border-bottom: 0px solid transparent;"><h3 style="margin-top: 5px;color: rgba(13,19,26,0.50);">充电使用TYPE-C线,充电<br>电源标准为5伏/500毫安；</h3><h3 style="margin-top: 5px;color: rgba(13,19,26,0.50);width: 250px;">Charge using a USB‑C cable. The rated input is 5V/500mA.</h3></button>
+            </div>
+        </div>
+
+        <!-- ===================== PAGE 8 ===================== -->
+        <div class="page">
+            <div class="p9">
+                <img src="https://lanrosx1994.github.io/SENIAE/SENIAE_BG.svg" alt="PULSE-0" style="height:90vh; width:auto;">
+            </div>
+        </div>
+
+        <!-- ===================== PAGE 9 ===================== -->
+        <div class="page">
+            <div class="p10">
+                <h2><span id="AE">SENIÆ</span> · 光谧科技 · PALE LUMINARY</h2>
+                <h3>看见 · 给予</h3>
+            </div>
+        </div>
     </div>
 
+    <!-- ===== 导航栏 ===== -->
     <div class="dots" id="dots">
-        <button data-index="0" class="active"></button>
-        <button data-index="1"></button>
-        <button data-index="2"></button>
-        <button data-index="3"></button>
-        <button data-index="4"></button>
-        <button data-index="5"></button>
-        <button data-index="6"></button>
-        <button data-index="7"></button>
-        <button data-index="8"></button>
-        <button data-index="9"></button>
+        <button data-index="0" class="active"><h4>首页<br>Home</h4></button>
+        <button data-index="1"><h4>目录<br>Contents</h4></button>
+        <button data-index="2"><h4>结构<br>structure</h4></button>
+        <button data-index="3"><h4>开关<br>On-off</h4></button>
+        <button data-index="4"><h4>伸缩<br>Intensity</h4></button>
+        <button data-index="5"><h4>震动<br>Vibration</h4></button>
+        <button data-index="6"><h4>爆发<br>Explosion</h4></button>
+        <button data-index="7"><h4>充电<br>Charge</h4></button>
+        <button data-index="8"><h4>参数<br>Parameter</h4></button>
+        <button data-index="9"><h4>尾页<br>End</h4></button>
     </div>
 
     <script>
@@ -133,7 +787,28 @@
             const dots = document.querySelectorAll('.dots button');
             const pages = document.querySelectorAll('.page');
             const total = pages.length;
+            const dotsEl = document.getElementById('dots');
 
+            let isScrolling = false;
+            let wheelTimeout = false;
+            let hideTimer = null;
+            let lastIndex = 0;
+
+            // ===== ★★★ 导航栏显示 / 隐藏控制 ★★★ =====
+            function showDots() {
+                dotsEl.classList.remove('hidden');
+                clearTimeout(hideTimer);
+                hideTimer = setTimeout(function() {
+                    dotsEl.classList.add('hidden');
+                }, 2000);
+            }
+
+            function hideDots() {
+                dotsEl.classList.add('hidden');
+                clearTimeout(hideTimer);
+            }
+
+            // ===== 获取当前页面索引 =====
             function getCurrentIndex() {
                 const scrollLeft = container.scrollLeft;
                 let minDiff = Infinity;
@@ -148,38 +823,194 @@
                 return idx;
             }
 
+            // ===== 更新导航高亮 =====
             function updateDots(index) {
                 dots.forEach((dot, i) => {
                     dot.classList.toggle('active', i === index);
                 });
             }
 
-            function scrollToPage(index) {
+            // ===== ★★★ 根据页面索引切换导航颜色（浅色/深色） ★★★ =====
+            function updateNavColor(index) {
+                // 第4~9页对应索引 3~8（因为第1页索引0，第4页索引3，第9页索引8）
+                // 这些页面背景为白色，需要导航文字为深色
+                if (index >= 3 && index <= 8) {
+                    dotsEl.classList.add('light');
+                } else {
+                    dotsEl.classList.remove('light');
+                }
+            }
+
+            // ===== 滚动到指定页 =====
+            function scrollToPage(index, smooth = true) {
                 if (index < 0 || index >= total) return;
+                if (isScrolling) return;
+                isScrolling = true;
                 const page = pages[index];
                 container.scrollTo({
                     left: page.offsetLeft,
-                    behavior: 'smooth'
+                    behavior: smooth ? 'smooth' : 'auto'
                 });
+                showDots();
+                setTimeout(() => {
+                    isScrolling = false;
+                }, 500);
             }
 
+            function goToPrev() {
+                const cur = getCurrentIndex();
+                if (cur > 0) scrollToPage(cur - 1);
+            }
+
+            function goToNext() {
+                const cur = getCurrentIndex();
+                if (cur < total - 1) scrollToPage(cur + 1);
+            }
+
+            // ===== 事件绑定 =====
+
+            // 1. 滚动事件 → 页面切换时唤醒导航栏 + 更新颜色
             container.addEventListener('scroll', function() {
                 const idx = getCurrentIndex();
                 updateDots(idx);
+                updateNavColor(idx); // 根据当前页切换颜色
+                if (idx !== lastIndex) {
+                    lastIndex = idx;
+                    showDots();
+                }
             });
 
+            // 2. 导航栏按钮点击 → 唤醒导航栏 + 跳转
             dots.forEach((dot) => {
                 dot.addEventListener('click', function(e) {
                     e.stopPropagation();
                     const index = parseInt(this.getAttribute('data-index'), 10);
+                    showDots();
                     scrollToPage(index);
                 });
             });
 
+            // 3. 第二页（目录）按钮点击
+            document.querySelectorAll('.p2-0 button').forEach((btn) => {
+                btn.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    const index = parseInt(this.getAttribute('data-index'), 10);
+                    if (!isNaN(index) && index >= 0 && index < total) {
+                        showDots();
+                        scrollToPage(index);
+                    }
+                });
+            });
+
+            // 4. 第三页（结构）按钮点击
+            document.querySelectorAll('.b3-1 button, .b3-2 button').forEach((btn) => {
+                btn.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    const index = parseInt(this.getAttribute('data-index'), 10);
+                    if (!isNaN(index) && index >= 0 && index < total) {
+                        showDots();
+                        scrollToPage(index);
+                    }
+                });
+            });
+
+            // 5. 鼠标滚轮
+            container.addEventListener('wheel', function(e) {
+                if (isScrolling) {
+                    e.preventDefault();
+                    return;
+                }
+                if (wheelTimeout) {
+                    e.preventDefault();
+                    return;
+                }
+                const delta = e.deltaY || e.deltaX;
+                if (Math.abs(delta) < 10) {
+                    e.preventDefault();
+                    return;
+                }
+                e.preventDefault();
+                showDots();
+                if (delta > 0) goToNext();
+                else goToPrev();
+                wheelTimeout = true;
+                setTimeout(() => {
+                    wheelTimeout = false;
+                }, 300);
+            }, { passive: false });
+
+            // 6. 键盘左右键
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'ArrowLeft') {
+                    e.preventDefault();
+                    showDots();
+                    goToPrev();
+                } else if (e.key === 'ArrowRight') {
+                    e.preventDefault();
+                    showDots();
+                    goToNext();
+                }
+            });
+
+            // 7. 点击页面任意位置唤醒
+            document.addEventListener('click', function(e) {
+                if (dotsEl.contains(e.target)) return;
+                if (e.target.closest('button')) return;
+                showDots();
+            });
+
+            // 8. 触摸滑动
+            let touchStartX = 0;
+            let touchStartY = 0;
+            container.addEventListener('touchstart', function(e) {
+                const touch = e.touches[0];
+                touchStartX = touch.clientX;
+                touchStartY = touch.clientY;
+            }, { passive: true });
+
+            container.addEventListener('touchend', function(e) {
+                const touch = e.changedTouches[0];
+                if (touch) {
+                    const dx = Math.abs(touch.clientX - touchStartX);
+                    const dy = Math.abs(touch.clientY - touchStartY);
+                    if (dx > 30 || dy > 30) {
+                        showDots();
+                    }
+                }
+            }, { passive: true });
+
+            // ===== 初始化 =====
             window.addEventListener('load', function() {
                 container.scrollLeft = 0;
+                lastIndex = 0;
                 updateDots(0);
+                updateNavColor(0); // 首页深色
+                showDots();
             });
+
+            let resizeTimer;
+            window.addEventListener('resize', function() {
+                clearTimeout(resizeTimer);
+                resizeTimer = setTimeout(() => {
+                    const idx = getCurrentIndex();
+                    lastIndex = idx;
+                    updateDots(idx);
+                    updateNavColor(idx);
+                }, 100);
+            });
+
+            // 鼠标悬停导航栏保持显示
+            dotsEl.addEventListener('mouseenter', function() {
+                clearTimeout(hideTimer);
+                dotsEl.classList.remove('hidden');
+            });
+            dotsEl.addEventListener('mouseleave', function() {
+                clearTimeout(hideTimer);
+                hideTimer = setTimeout(function() {
+                    dotsEl.classList.add('hidden');
+                }, 2000);
+            });
+
         })();
     </script>
 </body>
