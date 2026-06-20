@@ -14,6 +14,10 @@
             src: url('https://lanrosx1994.github.io/SENIAE/LTCXH.TTF') format('woff2');
   /* 可以添加更多 src 来兼容不同浏览器 */
 }
+		@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); } /* 移动距离越小越微妙 */
+}
         body {
             overflow: hidden;
             height: 100vh;
@@ -29,8 +33,7 @@
     scroll-behavior: smooth;
     scrollbar-width: none;
     -ms-overflow-style: none;
-    cursor: pointer;
-    font-family: "苹方-简";
+    font-family: 'MyCustomFont';
         }
         .container::-webkit-scrollbar {
             display: none;
@@ -107,7 +110,7 @@
             width: 100px;
         }
         #box3 {
-            margin-bottom: 1vh;
+            margin-bottom: clamp(1vw, 2vw, 1.8rem);
         }
         #h3-2,
         #h3-3 {
@@ -119,6 +122,7 @@
             background: #0d131a;
         }/* -----------------------------------------------------------2page */
         .cj1 {
+			animation: float 3s ease-in-out infinite;
             position: absolute;
             z-index: 0;
             /* 背景层 */
@@ -128,32 +132,54 @@
             right: -250px;
             bottom: -300px;
         }
+		.mask-b {
+			position: absolute;
+			z-index: 1;
+			display: flex;
+			height: 100%;
+			width: 50%;
+			left: 0;
+			background-image: linear-gradient(to right, rgba(13, 19, 26, 1), rgba(13, 19, 26, 0));
+			display: none;
+		}
         .p2-0 {
-            width: 600px;
+            width: clamp(300px, 40vw, 600px);
             position: absolute;
             z-index: 1;
             flex-direction: column;
             display: flex;
             pointer-events: auto;
-            left: 180px;
-            bottom: 180px;
+            left: clamp(50px, 12vw, 180px);
+            top: 350px;
             background-color: rgba(0, 0, 0, 0.0)
         }
         .p2-0 button {
+			cursor: pointer;
             border-right: none;
             border-left: none;
             border-top: none;
             border-bottom: 1px solid transparent;
             border-image: linear-gradient(to right, rgba(208, 213, 217, 0.10), rgba(208, 213, 217, 0)) 1;
             background: rgba(0, 0, 0, 0);
+			transition: all 2s ease;
+        }
+		.p2-0 button:hover {
+			border-image: linear-gradient(to right, rgba(208, 213, 217, 1), rgba(208, 213, 217, 0)) 1;
+        }
+		.p2-0 button h3:hover,
+		.p2-0 button h2:hover {
+			color: rgba(208, 213, 217, 1);
+			transform: translateY(-5px) scale(1.02);
         }
         .p2-0 button h3 {
             margin-top: 20px;
             margin-bottom: 5px;
+			transition: all 0.5s ease;
         }
         .p2-0 button h2 {
             margin-top: 20px;
             margin-bottom: 10px;
+			transition: all 0.5s ease;
         }
         #p2-1 {
             margin-bottom: 25px;
@@ -185,6 +211,7 @@
         }
         .cj3 h3,
         .cj2 h3 {
+			color: rgba(208, 213, 217, 1);
             margin-top: 0px;
             margin-right: auto;
             margin-left: auto;
@@ -192,6 +219,7 @@
             text-align: center;
         }
         .b3-1 {
+			z-index: 2;
             flex-direction: column;
             display: flex;
             pointer-events: auto;
@@ -223,6 +251,9 @@
         #b3-12 {
             margin-left: 47px;
         }
+		#b3-12-2 {
+			display: none;
+		}
         #b3-13 {
             margin-top: 185px;
             margin-left: 260px;
@@ -481,7 +512,7 @@
         h1 {
     font-family: 'MyCustomFont';
     font-size: clamp(1.4rem, 4vw, 1.8rem);
-    font-weight: 000;
+    font-weight: 100;
     margin-top: 0;
     margin-right: 0;
     margin-left: 0;
@@ -550,7 +581,7 @@
             width: 100px;
             position: fixed;
             right: 0px;
-            top: 250px;
+            top: clamp(230px, 25vw, 250px);
             transform: translateY(-50%);
             flex-direction: column;
             padding: 8px 0px;
@@ -593,8 +624,7 @@
             border-left-width: 1px;
             border-left-color: rgba(122, 122, 122, 0.3);
             margin-top: 10px;
-            /* ★ 默认向左偏移 35px（即移动距离为35px） */
-            margin-left: 35px;
+            margin-left: 80px;
         }
         .dots button.active {
             margin-left: 0px;
@@ -645,11 +675,65 @@
             font-weight: 200;
             opacity: 0.15;
         }
-    
-@media (max-width: 1055px){
+@media (max-width: 1255px){
+	#b3-11 {
+		display: none !important;
+	}
+	#b3-12 {
+		height: 30px;
+		margin-left: 146px;
+	}
+	#b3-12-2 {
+		margin-left: 400px;
+		height: 10px;
+		display:block;
+	}
+	#b3-12 h3 {
+		margin-top: 5px;
+	}
+	#b3-13 {
+		margin-top: 235px;
+	}
+} 
+@media (max-width: 1115px){
 	#x3,
 	#x3-2 {
 		display: none !important;
+	}
+	.b3-2,
+	.cj3 {
+		left: 2000px;
+	}
+	.cj2 img {
+		height: 710px;
+	}
+	.cj2 {
+		left: 70px;
+		bottom: 0px;
+	}
+	.b3-1 {
+		width: 80%;
+	}
+	#b3-12 {
+		margin-left: 172px;
+	}
+	#b3-12-2 {
+		margin-left: 460px;
+	}
+	#b3-13 {
+		margin-left: 312px;
+		margin-top: 293px;
+	}
+	#b3-14 {
+		height: 27px;
+		margin-left: 298px;
+	}
+	#b3-15 {
+		margin-left: 305px;
+	}
+	#b3-16{
+		margin-top: 17px;
+		margin-left: 298px;
 	}
 }
     
@@ -658,6 +742,16 @@
 	#x2-2 {
 		display: none !important;
 	}
+	.p2-0 {
+		top: 40px;
+	}
+	.cj2 {
+		left: -120px;
+	}
+	.b3-1 {
+		left: -120px;
+		width: 110%;
+	}
 }
     
 @media (max-width : 565px ){
@@ -665,12 +759,22 @@
 	#x1-2 {
 		display: none !important;
 	}
+	.cj1 {
+		right: -280px;
+	}
+	.p2-0 {
+		top: 40px;
+	}
+	.mask-b {
+		display: block;
+	}
 }
     
-@media (max-width: 390px){
+@media (max-width: 400px){
 	.page-first .logo-box img {
-            max-width: 90%;
+        max-width: 90%;
 }
+
     </style>
 </head>
 <body>
@@ -706,6 +810,7 @@
             <div class="cj1">
                 <img src="https://lanrosx1994.github.io/SENIAE/SENIAE_CJ_PLUSE.svg" alt="PULSE-0" height="1350px">
             </div>
+			<div class="mask-b"></div>
             <div class="p2-0">
                 <button id="p2-1" data-index="2"><h2>初 境  Pulse</h2></button>
                 <button data-index="3"><h3>开 关  On-off</h3></button>
@@ -717,13 +822,16 @@
             </div>
         </div>
         <div class="page">
+			<div class="mask-b" style="background-image: linear-gradient(to left, rgba(13, 19, 26, 1), rgba(13, 19, 26, 0));right: 0;left: auto;"></div>
             <div class="cj2">
                 <h3>正 面<br>Front</h3>
                 <img src="https://lanrosx1994.github.io/SENIAE/SENIAE_CJ_PULSE_Front.svg" alt="PULSE-1" height="600px">
             </div>
+			
             <div class="b3-1">
                 <button id="b3-11" data-index="3"><h3>Water filling port  出/入水口</h3></button>
                 <button id="b3-12" data-index="4"><h3>Water filling port  出/入水口</h3></button>
+				<button id="b3-12-2"><br></button>
                 <button id="b3-13" data-index="5"><h3>Vibration button  震动按钮</h3></button>
                 <button id="b3-14" data-index="6"><h3>LED light     LED灯</h3></button>
                 <button id="b3-15" data-index="7"><h3>On-Off button  开关按钮</h3></button>
@@ -851,7 +959,23 @@
             const pages = document.querySelectorAll('.page');
             const total = pages.length;
             const dotsEl = document.getElementById('dots');
+const titleEl = document.getElementById('b3-12');
+// 定义媒体查询条件（建议和 CSS 中的 @media 断点保持一致）
+const mediaQuery = window.matchMedia('(max-width: 1255px)');
 
+function updateText(e) {
+  // 这里的 e.matches 或 mediaQuery.matches 都可以
+  if (e.matches) {
+    titleEl.innerHTML = '<h3>Water filling port  双出/入水口</h3>';
+  } else {
+    titleEl.innerHTML = '<h3>Water filling port  出/入水口</h3>';
+  }
+}
+			// 1. 立即执行（注意：初次执行要手动传入 mediaQuery）
+updateText(mediaQuery);
+
+// 2. 监听状态变化（仅在 true/false 切换时触发，性能极佳）
+mediaQuery.addEventListener('change', updateText);
             // ★ 导航栏自动隐藏
             let hideTimer;
 
