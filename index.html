@@ -8,10 +8,11 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+			-webkit-tap-highlight-color: transparent;
         }
 		    @font-face {
             font-family: 'MyCustomFont';
-            src: url('https://lanrosx1994.github.io/SENIAE/LTCXH.TTF') format('woff2');
+            src: url('https://lanrosx1994.github.io/SENIAE/LTCXH.TTF')format('truetype');
   /* 可以添加更多 src 来兼容不同浏览器 */
 }
 		@keyframes float {
@@ -305,7 +306,7 @@
             margin-right: 265px;
         }
         .page:nth-child(4) {
-            background: #FFFFFF;
+            background: rgba(255, 255, 255, 1);
         }/* -----------------------------------------------------------4page */
         .cj4 {
             position: absolute;
@@ -400,19 +401,19 @@
             /* 显式确保内部透明 */
         }
         .page:nth-child(5) {
-            background: #FFFFFF;
+            background: rgba(255, 255, 255, 1);
         }/* -----------------------------------------------------------5page */
         .page:nth-child(6) {
-            background: #FFFFFF;
+            background: rgba(255, 255, 255, 1);
         }/* -----------------------------------------------------------6page */
         .page:nth-child(7) {
-            background: #FFFFFF;
+            background: rgba(255, 255, 255, 1);
         }/* -----------------------------------------------------------7page */
         .page:nth-child(8) {
-            background: #FFFFFF;
+            background: rgba(255, 255, 255, 1);
         }/* -----------------------------------------------------------8page */
         .page:nth-child(9) {
-            background: #FFFFFF;
+            background: rgba(255, 255, 255, 1);
         }/* -----------------------------------------------------------9page */
 		.p9-0 {
             width: 85vw;
@@ -595,6 +596,8 @@
             transition: opacity 0.4s ease, visibility 0.4s ease;
             opacity: 1;
             visibility: visible;
+			touch-action: none;
+        /* 阻止触摸滚动 */
         }
         /* ★ 新增：隐藏状态 */
         .dots.hidden {
