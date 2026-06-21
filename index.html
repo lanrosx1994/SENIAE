@@ -151,7 +151,7 @@
             display: flex;
             pointer-events: auto;
             left: clamp(50px, 12vw, 180px);
-            top: 350px;
+            bottom: clamp(50px, 12vw, 180px);
             background-color: rgba(0, 0, 0, 0.0)
         }
         .p2-0 button {
@@ -167,10 +167,19 @@
 		.p2-0 button:hover {
 			border-image: linear-gradient(to right, rgba(208, 213, 217, 1), rgba(208, 213, 217, 0)) 1;
         }
-		.p2-0 button h3:hover,
-		.p2-0 button h2:hover {
+		.p2-0 button:hover h3,
+		.p2-0 button:hover h2 {
 			color: rgba(208, 213, 217, 1);
 			transform: translateY(-5px) scale(1.02);
+        }
+		.p2-0 button:active {
+			transition: all 0.1s ease;
+			border-image: linear-gradient(to right, rgba(208, 213, 217, 1), rgba(208, 213, 217, 0)) 1;
+        }
+		.p2-0 button:active h3,
+		.p2-0 button:active h2 {
+			transition: all 0.1s ease;
+			transform: translateY(-1px) scale(1.02);
         }
         .p2-0 button h3 {
             margin-top: 20px;
@@ -305,6 +314,9 @@
             margin-top: 232px;
             margin-right: 265px;
         }
+		.toggle {
+			display: none;
+		}
         .page:nth-child(4) {
             background: rgba(255, 255, 255, 1);
         }/* -----------------------------------------------------------4page */
@@ -542,7 +554,7 @@
             margin-top: 50px;
             margin-left: 0;
             margin-bottom: 15px;
-            color: rgba(208, 213, 217, 0.3);
+            color: rgba(208, 213, 217, 0.4);
             text-align: left;
             white-space: pre-wrap;
             line-height: 1.5em;
@@ -722,6 +734,36 @@
 		width: auto;
 		bottom: 50px;
 	}
+	.toggle {
+		position: absolute; 
+		top: 20px;
+		height: 50px;
+		width: 300px;
+	    z-index: 100;
+        display: block;
+		background-color: rgba(13, 19, 26, 0);
+		background-image: linear-gradient(to right, rgba(128, 0, 32, 0), rgba(128, 0, 32, 0.5), rgba(128, 0, 32, 0));
+		background-size: 100% 1px;
+		background-position: bottom center;
+  /* 禁止平铺 */
+  background-repeat: no-repeat;
+  
+  /* 可选：给文字留出间距，避免紧贴底部 */
+  padding-bottom: 5px;
+		border: none;
+		
+		}
+	.toggle button {
+		
+		}
+	.toggle h4 {
+		margin: 0 0;
+		height: auto;
+        width: auto;
+        color: rgba(208, 213, 217, 0.4);
+        text-align: center;
+		float: inherit;
+		}
 
 }
     
@@ -812,6 +854,7 @@
         </div>
         <div class="page">
 			<div class="mask-b" style="background-image: linear-gradient(to left, rgba(13, 19, 26, 1), rgba(13, 19, 26, 0));right: 0;left: auto;"></div>
+			<button class="toggle"><h4>切换到反面<br>Toggle rear view</h4></button>
             <div class="cj2">
                 <h3>正 面<br>Front</h3>
                 <img src="https://lanrosx1994.github.io/SENIAE/SENIAE_CJ_PULSE_Front.svg" alt="PULSE-1" height="600px">
