@@ -26,15 +26,15 @@
         }
 
         .container {
-    display: flex;
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    height: 100vh;
-    width: 100vw;
-    scroll-behavior: smooth;
-    scrollbar-width: none;
-    -ms-overflow-style: none;
-    font-family: 'MyCustomFont';
+            display: flex;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            height: 100vh;
+            width: 100vw;
+            scroll-behavior: smooth;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+            font-family: 'MyCustomFont';
         }
         .container::-webkit-scrollbar {
             display: none;
@@ -338,10 +338,11 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            right: 150px;
+            right: clamp(0px, 8vw, 150px);
+			bottom: 9vw;
         }
         .p4-0 {
-            width: 750px;
+            width: calc(300px + (750 - 300) * (100vw - 785px) / (1275 - 785));
             position: absolute;
             z-index: 1;
             flex-direction: column;
@@ -423,6 +424,10 @@
             background-color: transparent;
             /* 显式确保内部透明 */
         }
+		#cj8-3,
+	    #cj8-4 {
+		display: none;
+	}
         .page:nth-child(5) {
             background: rgba(255, 255, 255, 1);
         }/* -----------------------------------------------------------5page */
@@ -731,6 +736,16 @@
 		margin-top: 235px;
 	}
 } 
+@media (max-width: 1184px){
+	.p4-2 h3,
+	.p4-4 h3 {
+		margin-right: 10px !important;
+		width: auto !important;
+	}
+	h3.p4-21::before {
+		display: none;
+	}
+		}
 @media (max-width: 1115px){
 	#x3,
 	#x3-2 {
@@ -740,7 +755,7 @@
 		width: auto;
 		left: 100%;
 		right: -600px;
-		bottom: 50px;
+		bottom: 32px;
 		transition: all 1s ease;
 	}
 	.b3-2.state-b {
@@ -750,7 +765,7 @@
 		transition: all 1s ease;
 	}
 	.cj3 {
-		bottom: 0;
+		bottom: -18px;
 		right: -700px;
 		transition: all 1s ease;
 	}
@@ -763,8 +778,8 @@
 		height: 600px;
 	}
 	.cj2 {
+		bottom: -18px;
 		left: 70px;
-		bottom: 0px;
 		transition: all 1s ease;
 	}
 	.cj2 h3 {
@@ -775,9 +790,9 @@
 		transition: all 1s ease;
 	}
 	.b3-1 {
+		bottom: 32px;
 		right: 99px;
 		width: auto;
-		bottom: 50px;
 		transition: all 1s ease;
 	}
 	.b3-1.state-b {
@@ -830,20 +845,26 @@
 		top: 40px;
 	}
 	.cj2 {
-		left: -120px;
+		left: -130px;
 	}
 	.b3-1 {
-		left: -120px;
+		left: -130px;
 		width:auto;
 		right: 20px;
 	}
 	.b3-2.state-b {
-		right: -120px;
+		right: -130px;
 		width:auto;
 		left: 20px;
 	}
 	.cj3.state-b {
-		right: -120px;
+		right: -130px;
+	}
+	.cj4 {
+		right: -70px;
+	}
+	.p4-0 {
+		width: 300px;
 	}
 }
     
@@ -868,6 +889,30 @@
 		background-image: linear-gradient(to right, rgba(13, 19, 26, 1), rgba(13, 19, 26, 0));
 		right: auto;
 	}
+	.cj4 {
+		float: right;
+		right: -150px;
+		bottom: 370px;
+		}
+	.cj4 img {
+		height: auto;
+		width: 400px;
+	}
+	.p4-0 {
+		bottom: 30px;
+	}
+	#cj8-1,
+	#cj8-2 {
+		display: none;
+	}
+	#cj8-3,
+	#cj8-4 {
+		display:block;
+	}
+	#cj8-4 {
+		
+	}
+	
 }
     
 @media (max-width: 400px){
@@ -887,7 +932,7 @@
                 </div>
             </div>
             <div id="box1" class="x-box">
-                <h1>使用手册  USER MANUAL</h1>
+                <h1>使用手册   USER MANUAL</h1>
             </div>
             <div id="box2" class="x-box">
                 <h3>产品名称<br>Product Name</h3>
@@ -912,13 +957,13 @@
             </div>
 			<div class="mask-a"></div>
             <div class="p2-0">
-                <button id="p2-1" data-index="2"><h2>初 境  Pulse</h2></button>
-                <button data-index="3"><h3>开 关  On-off</h3></button>
-                <button data-index="4"><h3>伸 缩  Intensity</h3></button>
-                <button data-index="5"><h3>震 动  Vibration</h3></button>
-                <button data-index="6"><h3>爆 发  Explosion</h3></button>
-                <button data-index="7"><h3>充 电  Charge</h3></button>
-                <button data-index="8"><h3>参 数  Parameter</h3></button>
+                <button id="p2-1" data-index="2"><h2>初 境   Pulse</h2></button>
+                <button data-index="3"><h3>开 关   On-off</h3></button>
+                <button data-index="4"><h3>伸 缩   Intensity</h3></button>
+                <button data-index="5"><h3>震 动   Vibration</h3></button>
+                <button data-index="6"><h3>爆 发   Explosion</h3></button>
+                <button data-index="7"><h3>充 电   Charge</h3></button>
+                <button data-index="8"><h3>参 数   Parameter</h3></button>
             </div>
         </div>
         <div class="page">
@@ -951,10 +996,10 @@
                 <img src="https://lanrosx1994.github.io/SENIAE/SENIAE_CJ_PULSE_On_off.svg" alt="PULSE-0" height="600px">
             </div>
             <div class="p4-0">
-                <button class="p4-1"><h2>开 关  On-off</h2></button>
-                <button class="p4-2"><h3>开 机</h3><h3>Turn on</h3></button>
+                <button class="p4-1"><h2>开 关   On-off</h2></button>
+                <button class="p4-2"><h3>开 机</h3><h3 class="p4-21">Turn on</h3></button>
                 <button class="p4-3" style="border-bottom: 0px solid transparent;"><h3 style="margin-top: 5px;color: rgba(13,19,26,0.50);">关机状态下，长按中间电源按钮2S后开机，LED灯常亮；</h3><h3 style="margin-top: 5px;color: rgba(13,19,26,0.50);width: 250px;">When off, press and hold the middle power button for 2s to start up; the LED stays lit.</h3></button>
-                <button class="p4-4"><h3>关 机</h3><h3>Power off</h3></button>
+                <button class="p4-4"><h3>关 机</h3><h3 class="p4-21">Power off</h3></button>
                 <button class="p4-5" style="border-bottom: 0px solid transparent;"><h3 style="margin-top: 5px;color: rgba(13,19,26,0.50);">开机状态下，长按中间电源按钮2S后关机，LED灯熄灭；</h3><h3 style="margin-top: 5px;color: rgba(13,19,26,0.50);width: 250px;">When on, long press the middle power button for 2s to shut down; the LED will go off.</h3></button>
             </div>
         </div>
@@ -963,10 +1008,10 @@
                 <img src="https://lanrosx1994.github.io/SENIAE/SENIAE_CJ_PULSE_Intensity.svg" alt="PULSE-0" height="600px">
             </div>
             <div class="p4-0">
-                <button class="p4-1"><h2>伸 缩  Intensity</h2></button>
-                <button class="p4-2"><h3>开启伸缩</h3><h3>Enable intensity</h3></button>
+                <button class="p4-1"><h2>伸 缩   Intensity</h2></button>
+                <button class="p4-2"><h3>开启伸缩</h3><h3 class="p4-21">Enable intensity</h3></button>
                 <button class="p4-3" style="border-bottom: 0px solid transparent;"><h3 style="margin-top: 5px;color: rgba(13,19,26,0.50);">开机状态下，短按伸缩按钮<br>3档强度依次切换；</h3><h3 style="margin-top: 5px;color: rgba(13,19,26,0.50);width: 250px;">When powered on, short-press the retractable key to cycle through three intensity levels.</h3></button>
-                <button class="p4-4"><h3>关闭伸缩</h3><h3>Disable intensity</h3></button>
+                <button class="p4-4"><h3>关闭伸缩</h3><h3 class="p4-21">Disable intensity</h3></button>
                 <button class="p4-5" style="border-bottom: 0px solid transparent;"><h3 style="margin-top: 5px;color: rgba(13,19,26,0.50);">启动状态下，长按伸缩按钮<br>2秒，停止伸缩；</h3><h3 style="margin-top: 5px;color: rgba(13,19,26,0.50);width: 250px;">When activated, long-press the telescopic button for 2s to halt telescoping.</h3></button>
             </div>
         </div>
@@ -975,10 +1020,10 @@
                 <img src="https://lanrosx1994.github.io/SENIAE/SENIAE_CJ_PULSE_Vibration.svg" alt="PULSE-0" height="600px">
             </div>
             <div class="p4-0">
-                <button class="p4-1"><h2>震 动  Vibration</h2></button>
-                <button class="p4-2"><h3>开启震动</h3><h3>Enable vibration</h3></button>
+                <button class="p4-1"><h2>震 动   Vibration</h2></button>
+                <button class="p4-2"><h3>开启震动</h3><h3 class="p4-21">Enable vibration</h3></button>
                 <button class="p4-3" style="border-bottom: 0px solid transparent;"><h3 style="margin-top: 5px;color: rgba(13,19,26,0.50);">开机状态下，短按震动按钮<br>5档强度依次切换；</h3><h3 style="margin-top: 5px;color: rgba(13,19,26,0.50);width: 250px;">When powered on, short-press the vibration button to cycle through 5 intensity levels.</h3></button>
-                <button class="p4-4"><h3>关闭震动</h3><h3>Disable vibration</h3></button>
+                <button class="p4-4"><h3>关闭震动</h3><h3 class="p4-21">Disable vibration</h3></button>
                 <button class="p4-5" style="border-bottom: 0px solid transparent;"><h3 style="margin-top: 5px;color: rgba(13,19,26,0.50);">启动状态下，长按震动按钮<br>2秒，停止震动；</h3><h3 style="margin-top: 5px;color: rgba(13,19,26,0.50);width: 250px;">When activated, press and hold the vibration button for 2 seconds to stop vibration.</h3></button>
             </div>
         </div>
@@ -987,23 +1032,25 @@
                 <img src="https://lanrosx1994.github.io/SENIAE/SENIAE_CJ_PULSE_On_off.svg" alt="PULSE-0" height="600px">
             </div>
             <div class="p4-0">
-                <button class="p4-1"><h2>爆 发  Explosion</h2></button>
-                <button class="p4-2"><h3>开启爆发</h3><h3>Enable explosion</h3></button>
+                <button class="p4-1"><h2>爆 发   Explosion</h2></button>
+                <button class="p4-2"><h3>开启爆发</h3><h3 class="p4-21">Enable explosion</h3></button>
                 <button class="p4-3" style="border-bottom: 0px solid transparent;"><h3 style="margin-top: 5px;color: rgba(13,19,26,0.50);">开机状态下，短按开关按钮<br>伸缩与震动开启最强档位；</h3><h3 style="margin-top: 5px;color: rgba(13,19,26,0.50);width: 250px;">When powered on, briefly press the power button to set both intensity and vibration to the highest level.</h3></button>
-                <button class="p4-4"><h3>关闭爆发</h3><h3>Disable explosion</h3></button>
+                <button class="p4-4"><h3>关闭爆发</h3><h3 class="p4-21">Disable explosion</h3></button>
                 <button class="p4-5" style="border-bottom: 0px solid transparent;"><h3 style="margin-top: 5px;color: rgba(13,19,26,0.50);">启动状态下，长按开关按钮<br>2秒，停止并关机；</h3><h3 style="margin-top: 5px;color: rgba(13,19,26,0.50);width: 250px;">When activated, press and hold the power button for 2 seconds to stop all functions and power off.</h3></button>
             </div>
         </div>
         <div class="page">
             <div class="cj4">
-                <img src="https://lanrosx1994.github.io/SENIAE/SENIAE_CJ_PULSE_Charge.svg" alt="PULSE-0" height="600px">
-                <img src="https://lanrosx1994.github.io/SENIAE/SENIAE_CJ_PULSE_LED_light.svg" alt="PULSE-0" height="600px">
+                <img id="cj8-1" src="https://lanrosx1994.github.io/SENIAE/SENIAE_CJ_PULSE_Charge.svg" alt="PULSE-0" height="600px">
+                <img id="cj8-2" src="https://lanrosx1994.github.io/SENIAE/SENIAE_CJ_PULSE_LED_light.svg" alt="PULSE-0" height="600px">
+				<img id="cj8-3" src="https://lanrosx1994.github.io/SENIAE/SENIAE_CJ_PULSE_Charge_fall.svg" alt="PULSE-0" height="600px">
+				<img id="cj8-4" src="https://lanrosx1994.github.io/SENIAE/SENIAE_CJ_PULSE_LED_light_only.svg" alt="PULSE-0" height="600px">
             </div>
             <div class="p4-0">
-                <button class="p4-1"><h2>充 电  Charge</h2></button>
-                <button class="p4-2"><h3>LED灯</h3><h3>LED light</h3></button>
+                <button class="p4-1"><h2>充 电   Charge</h2></button>
+                <button class="p4-2"><h3>LED灯</h3><h3 class="p4-21">LED light</h3></button>
                 <button class="p4-3" style="border-bottom: 0px solid transparent;"><h3 style="margin-top: 5px;color: rgba(13,19,26,0.50);">开机状态下，充电时指示灯<br>闪烁，电量充满灯光常亮；</h3><h3 style="margin-top: 5px;color: rgba(13,19,26,0.50);width: 250px;">When on, the indicator flashes while charging and stays solid when the battery is full.</h3></button>
-                <button class="p4-4"><h3>关闭爆发</h3><h3>Disable explosion</h3></button>
+                <button class="p4-4"><h3>关闭爆发</h3><h3 class="p4-21">Disable explosion</h3></button>
                 <button class="p4-5" style="border-bottom: 0px solid transparent;"><h3 style="margin-top: 5px;color: rgba(13,19,26,0.50);">充电使用TYPE-C线,充电<br>电源标准为5伏/500毫安；</h3><h3 style="margin-top: 5px;color: rgba(13,19,26,0.50);width: 250px;">Charge using a USB‑C cable. The rated input is 5V/500mA.</h3></button>
             </div>
         </div>
@@ -1024,8 +1071,8 @@
 				<button style="width: 10px;"></button>
 			</div>
 			<div class="p9-0">
-				<button class="p9-01"><h2>初 境  Pulse</h2></button>
-                <button class="p9-1"><h2>参 数  Parameters</h2></button>
+				<button class="p9-01"><h2>初 境   Pulse</h2></button>
+                <button class="p9-1"><h2>参 数   Parameters</h2></button>
                 <button class="p9-2"><h3>产品重量</h3><h3 style="width: 115px;">产品尺寸</h3><h3>放电时间</h3><h3>充电时间</h3><h3>工作电压</h3><h3>工作电流</h3><h3>关机电压</h3><h3>充电电压</h3><h3>充电电流</h3><h3>防水等级</h3><h3>噪音测试</h3><h3>电池型号</h3><h3 style="float: right;margin-right: 0;text-align: right;width: auto;">电池容量</h3></button>
                 <button id="p9-3"><h5>约710克</h5><h5 style="width: 115px;">195x160x100毫米</h5><h5>50分钟</h5><h5>2.5小时</h5><h5>3.7伏</h5><h5>1.3安</h5><h5>3.0伏</h5><h5>5伏</h5><h5>950毫米</h5><h5>可水洗</h5><h5>65分贝</h5><h5>锂电池102540</h5><h5 style="float: right;margin-right: 0;text-align: right;width: auto;">1200毫安时</h5></button>
                 <button class="p9-4"><h3>Product<br>Weight</h3><h3 style="width: 115px;">Product<br>Dimensions</h3><h3>Discharge<br>Time</h3><h3>Charging<br>Time</h3><h3>Operating<br>Voltage</h3><h3>Operating<br>Current</h3><h3>Cut-off<br>Voltage</h3><h3>Charging<br>Voltage</h3><h3>Charging<br>Current</h3><h3>Waterproof<br>Rating</h3><h3>Noise<br>Level</h3><h3>Battery<br>Model</h3><h3 style="float: right;margin-right: 0;text-align: right;width: auto;">Battery<br>Capacity</h3></button>
@@ -1071,6 +1118,7 @@
               titleEl.innerHTML = '<h3>Water filling port  出/入水口</h3>';
             }
 }
+			
 			// 1. 立即执行（注意：初次执行要手动传入 mediaQuery）
 updateText(mediaQuery);
 
