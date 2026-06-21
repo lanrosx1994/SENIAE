@@ -488,41 +488,62 @@
             color: rgba(13, 19, 26, 1.00);
             font-weight: 600;	
         }
-		.p9-2 {
-            margin-top: 30px;
+		/* ===== 每个区块 ===== */
+		.bg {
+			padding-top: 55px;
+            width: 100%;
+            max-width: 1400px;
+            background: #ffffff;
+            border-radius: 8px;
         }
-		#p9-3,
-		#p9-5 {
-			border-bottom: 0px solid transparent;
-		}
-		.p9-00 {
-    height: 390px;
-    width: 85vw;
-    position: absolute;
-    z-index: 0;
-    flex-direction: row;
-    display: flex;
-    pointer-events: auto;
-    left: 10vw;
-    bottom: 0;
-    background-color: rgba(0, 0, 0, 0)
+        .section {
+            margin-bottom: 50px;
         }
-		.p9-00 button {
-			width: 70px;
-            border-right: none;
-            border-bottom: none;
-            border-top: none;
-            border-left: 1px solid rgba(13, 19, 26, 0);
-            background: rgba(0, 0, 0, 0);
+        .section:last-child {
+            margin-bottom: 0;
         }
-		#q1,
-		#q2,
-		#q3,
-		#q4,
-		#q5,
-		#q6 {
-			background: linear-gradient(to bottom, rgba(242,242,242,0.5), rgba(242,242,242,0));
-		}
+
+        /* ===== 卡片网格 ===== */
+        .card-grid {
+            display: grid;
+            /* 移动端默认单列 */
+            grid-template-columns: 1fr;
+            gap: 10px;
+        }
+
+        /* ===== 卡片内部 ===== */
+        .card {
+            display: grid;
+            text-align: left;
+            align-items: start;
+        }
+
+        /* 3列卡片：标签+值成对出现，共6个子项 */
+        .card-3cols {
+            grid-template-columns: repeat(3, 1fr);
+        }
+
+        /* ===== 标签 & 数值 ===== */
+        .lbl {
+			font-family: 'MyCustomFont';
+            color: rgba(13, 19, 26, 0.5);
+            font-size: 0.8rem;
+            letter-spacing: 0.5px;
+            border-bottom: 1px solid #f0f0f0;
+            white-space: nowrap;
+			font-weight: 600;
+			padding-bottom: 8px;
+        }
+
+        .val {
+			height: 36.8px;
+			font-family: 'MyCustomFont';
+            color: rgba(13, 19, 26, 1.00);
+            font-size: 0.8rem;
+            font-weight: 600;
+            white-space: nowrap;
+			padding-top: 8px;
+        }
         .page:nth-child(10) {
             background: #0d131a;
         }/* ---------------------------------------------------------10page */
@@ -716,6 +737,55 @@
 			transform: translateY(-5px) scale(1.02);
         }
 		}
+		        @media (min-width: 768px) and (max-width: 1180px) {
+            .card-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 0;                     /* 与原桌面端一致 */
+            }
+
+            .card {
+                padding: 0 0;
+            }
+
+            .lbl {
+                border-bottom: 1px solid #ebebeb;
+                padding-bottom: 8px;
+            }
+
+            .val {
+				padding-bottom: 60px;
+                font-size: 0.8rem;
+            }
+        }
+
+        /* ==========================================================
+                   大屏：≥ 1181px  →  4列
+                   ========================================================== */
+        @media (min-width: 1181px) {
+			
+            .card-grid {
+                grid-template-columns: repeat(4, 1fr);
+                gap: 0;
+            }
+            .card {
+                padding: 0 0;
+            }
+            .lbl {
+                border-bottom: 1px solid #ebebeb;
+                padding-bottom: 8px;
+            }
+            .val {
+				padding-top: 8px;
+                font-size: 0.8rem;
+            }
+			#lbl-1,
+			#lbl-2,
+			#lbl-3,
+			#lbl-4 {
+				text-align: right;
+                float: right;
+			}
+        }
 @media (max-width: 1255px){
 	#b3-11 {
 		display: none !important;
@@ -745,7 +815,22 @@
 	h3.p4-21::before {
 		display: none;
 	}
+	#cj8-1,
+	#cj8-2 {
+		display: none;
 		}
+	#cj8-3 {
+		display: block;
+		
+	}
+	#cj8-4 {
+		position: absolute;
+		z-index: 5;
+		padding-top: 185px;
+		margin-right: calc(250px + (900 - 250) * (100vw - 785px) / (1184 - 785));;
+		display: block;
+		width: 36px;
+	}
 @media (max-width: 1115px){
 	#x3,
 	#x3-2 {
@@ -866,6 +951,9 @@
 	.p4-0 {
 		width: 300px;
 	}
+	#cj8-4 {
+		margin-right: 0;
+	}
 }
     
 @media (max-width : 565px ){
@@ -890,6 +978,7 @@
 		right: auto;
 	}
 	.cj4 {
+		flex-direction: column;
 		float: right;
 		right: -150px;
 		bottom: 370px;
@@ -901,25 +990,22 @@
 	.p4-0 {
 		bottom: 30px;
 	}
-	#cj8-1,
-	#cj8-2 {
-		display: none;
-	}
-	#cj8-3,
-	#cj8-4 {
+	
+	#cj8-3 {
 		display:block;
 	}
 	#cj8-4 {
-		
+		padding-top: 0;
+		margin-right: 0;
+		display:block;
+		margin-bottom: -762px;
 	}
-	
-}
-    
+ }  
 @media (max-width: 400px){
 	.page-first .logo-box img {
         max-width: 90%;
 }
-
+}
     </style>
 </head>
 <body>
@@ -1051,32 +1137,107 @@
                 <button class="p4-2"><h3>LED灯</h3><h3 class="p4-21">LED light</h3></button>
                 <button class="p4-3" style="border-bottom: 0px solid transparent;"><h3 style="margin-top: 5px;color: rgba(13,19,26,0.50);">开机状态下，充电时指示灯<br>闪烁，电量充满灯光常亮；</h3><h3 style="margin-top: 5px;color: rgba(13,19,26,0.50);width: 250px;">When on, the indicator flashes while charging and stays solid when the battery is full.</h3></button>
                 <button class="p4-4"><h3>关闭爆发</h3><h3 class="p4-21">Disable explosion</h3></button>
-                <button class="p4-5" style="border-bottom: 0px solid transparent;"><h3 style="margin-top: 5px;color: rgba(13,19,26,0.50);">充电使用TYPE-C线,充电<br>电源标准为5伏/500毫安；</h3><h3 style="margin-top: 5px;color: rgba(13,19,26,0.50);width: 250px;">Charge using a USB‑C cable. The rated input is 5V/500mA.</h3></button>
+                <button class="p4-5" style="border-bottom: 0px solid transparent;"><h3 style="margin-top: 5px;color: rgba(13,19,26,0.50);">充电使用TYPE-C线,充电<br>电源标准为5伏/500毫安；</h3><h3 style="margin-top: 5px;color: rgba(13,19,26,0.50);width: 250px;height: 57.6px;">Charge using a USB‑C cable. The rated input is 5V/500mA.</h3></button>
             </div>
         </div>
         <div class="page">
-			<div class="p9-00">
-				<button></button>
-				<button style="width: 148px;" id="q1"></button>
-				<button style="width: 90px;"></button>
-				<button style="width: 95px;" id="q2"></button>
-				<button style="width: 95px;"></button>
-				<button style="width: 98px;" id="q3"></button>
-				<button style="width: 95px;"></button>
-				<button style="width: 99px;" id="q4"></button>
-				<button style="width: 95px;"></button>
-				<button style="width: 100px;" id="q5"></button>
-				<button style="width: 82px;"></button>
-				<button style="width: 142px;" id="q6"></button>
-				<button style="width: 10px;"></button>
-			</div>
 			<div class="p9-0">
 				<button class="p9-01"><h2>初 境   Pulse</h2></button>
-                <button class="p9-1"><h2>参 数   Parameters</h2></button>
-                <button class="p9-2"><h3>产品重量</h3><h3 style="width: 115px;">产品尺寸</h3><h3>放电时间</h3><h3>充电时间</h3><h3>工作电压</h3><h3>工作电流</h3><h3>关机电压</h3><h3>充电电压</h3><h3>充电电流</h3><h3>防水等级</h3><h3>噪音测试</h3><h3>电池型号</h3><h3 style="float: right;margin-right: 0;text-align: right;width: auto;">电池容量</h3></button>
-                <button id="p9-3"><h5>约710克</h5><h5 style="width: 115px;">195x160x100毫米</h5><h5>50分钟</h5><h5>2.5小时</h5><h5>3.7伏</h5><h5>1.3安</h5><h5>3.0伏</h5><h5>5伏</h5><h5>950毫米</h5><h5>可水洗</h5><h5>65分贝</h5><h5>锂电池102540</h5><h5 style="float: right;margin-right: 0;text-align: right;width: auto;">1200毫安时</h5></button>
-                <button class="p9-4"><h3>Product<br>Weight</h3><h3 style="width: 115px;">Product<br>Dimensions</h3><h3>Discharge<br>Time</h3><h3>Charging<br>Time</h3><h3>Operating<br>Voltage</h3><h3>Operating<br>Current</h3><h3>Cut-off<br>Voltage</h3><h3>Charging<br>Voltage</h3><h3>Charging<br>Current</h3><h3>Waterproof<br>Rating</h3><h3>Noise<br>Level</h3><h3>Battery<br>Model</h3><h3 style="float: right;margin-right: 0;text-align: right;width: auto;">Battery<br>Capacity</h3></button>
-                <button id="p9-5"><h5>≈710 g</h5><h5 style="width: 115px;">195x160x100mm</h5><h5>50 min</h5><h5>2.5 hours</h5><h5>3.7 V</h5><h5>1.3 A</h5><h5>3.0 V</h5><h5>5 V</h5><h5>950 mA</h5><h5>Washable</h5><h5>65 dB</h5><h5 style="width: 120px;">Lithium battery<br>102540</h5><h5 style="float: right;margin-left: 0;;margin-right: 0;text-align: right;width: auto;">1200mAh</h5></button>
+                <button class="p9-02"><h2>参 数   Parameters</h2></button>
+				<div class="bg">
+                <div class="section">
+            <div class="card-grid">
+
+                <!-- 卡片 1 -->
+                <div class="card card-3cols">
+                    <div class="lbl">产品重量</div>
+                    <div class="lbl">产品尺寸</div>
+                    <div class="lbl">放电时间</div>
+                    <div class="val">约710克</div>
+                    <div class="val">195x160<br/>x100毫米</div>
+                    <div class="val">50分钟</div>
+                </div>
+
+                <!-- 卡片 2 -->
+                <div class="card card-3cols">
+                    <div class="lbl">充电时间</div>
+                    <div class="lbl">工作电压</div>
+                    <div class="lbl">工作电流</div>
+                    <div class="val">2.5小时</div>
+                    <div class="val">3.7伏</div>
+                    <div class="val">1.3安</div>
+                </div>
+
+                <!-- 卡片 3 -->
+                <div class="card card-3cols">
+                    <div class="lbl">充电电压</div>
+                    <div class="lbl">充电电流</div>
+                    <div class="lbl">防水等级</div>
+                    <div class="val">5伏</div>
+                    <div class="val">950毫安</div>
+                    <div class="val">可水洗</div>
+                </div>
+
+                <!-- 卡片 4 -->
+                <div class="card card-3cols">
+                    <div class="lbl">噪音测试</div>
+                    <div class="lbl">电池型号</div>
+                    <div id="lbl-1" class="lbl">电池容量</div>
+                    <div class="val">65分贝</div>
+                    <div class="val">锂电池102540</div>
+                    <div id="lbl-2" class="val">1200毫安时</div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- ==================== 2. 英文区 ==================== -->
+        <div class="section">
+            <div class="card-grid">
+
+                <!-- 卡片 1 -->
+                <div class="card card-3cols">
+                    <div class="lbl">Product<br />Weight</div>
+                    <div class="lbl">Product<br />Dimensions</div>
+                    <div class="lbl">Discharge<br />Time</div>
+                    <div class="val">≈710 g</div>
+                    <div class="val">195x160<br/>x100mm</div>
+                    <div class="val">50 min</div>
+                </div>
+
+                <!-- 卡片 2 -->
+                <div class="card card-3cols">
+                    <div class="lbl">Charging<br />Time</div>
+                    <div class="lbl">Operating<br />Voltage</div>
+                    <div class="lbl">Operating<br />Current</div>
+                    <div class="val">2.5 hours</div>
+                    <div class="val">3.7 V</div>
+                    <div class="val">1.3 A</div>
+                </div>
+
+                <!-- 卡片 3 -->
+                <div class="card card-3cols">
+                    <div class="lbl">Charging<br />Voltage</div>
+                    <div class="lbl">Charging<br />Current</div>
+                    <div class="lbl">Waterproof<br />Rating</div>
+                    <div class="val">5 V</div>
+                    <div class="val">950 mA<br></div>
+                    <div class="val">Washable</div>
+                </div>
+
+                <!-- 卡片 4 -->
+                <div class="card card-3cols">
+                    <div class="lbl">Noise<br/>Level</div>
+                    <div class="lbl">Battery<br/>Model</div>
+                    <div id="lbl-3" class="lbl">Battery<br/>Capacity</div>
+                    <div class="val">65 dB</div>
+                    <div class="val">Lithium battery<br>102540</div>
+                    <div id="lbl-4" class="val">1200mAh</div>
+                </div>
+
+            </div>
+        </div>
+	</div>
             </div>
         </div>
         <div class="page">
