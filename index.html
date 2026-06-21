@@ -17,8 +17,16 @@
 }
 		@keyframes float {
   0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-5px); } /* 移动距离越小越微妙 */
+  50% { transform: translateY(-8px); } /* 移动距离越小越微妙 */
 }
+		@keyframes float1 {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-15px); } /* 移动距离越小越微妙 */
+}
+		@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.01); }
+		}
         body {
             overflow: hidden;
             height: 100vh;
@@ -58,7 +66,7 @@
 
         .page:nth-child(1) {
             background: #0d131a;
-        }/* -----------------------------------------------------------1page */
+        }/* ------------------------------------------------------------------------------------------------------1page */
         .page-first {
             display: flex;
             flex-direction: column;
@@ -122,7 +130,7 @@
         }
         .page:nth-child(2) {
             background: #0d131a;
-        }/* -----------------------------------------------------------2page */
+        }/* ------------------------------------------------------------------------------------------------------2page */
         .cj1 {
 			animation: float 3s ease-in-out infinite;
             position: absolute;
@@ -206,7 +214,7 @@
         }
         .page:nth-child(3) {
             background: #0d131a;
-        }/* -----------------------------------------------------------3page */
+        }/* ------------------------------------------------------------------------------------------------------3page */
         .cj2 {
             flex-direction: column;
             display: flex;
@@ -330,7 +338,7 @@
 		}
         .page:nth-child(4) {
             background: rgba(255, 255, 255, 1);
-        }/* -----------------------------------------------------------4page */
+        }/* ------------------------------------------------------------------------------------------------------4page */
         .cj4 {
             position: absolute;
             z-index: 0;
@@ -430,19 +438,31 @@
 	}
         .page:nth-child(5) {
             background: rgba(255, 255, 255, 1);
-        }/* -----------------------------------------------------------5page */
+        }/* ------------------------------------------------------------------------------------------------------5page */
+		#Intensity {
+			animation: float 1s ease-in-out infinite;
+		}
         .page:nth-child(6) {
             background: rgba(255, 255, 255, 1);
-        }/* -----------------------------------------------------------6page */
+        }/* ------------------------------------------------------------------------------------------------------6page */
+		#Vibration {
+			animation: pulse 0.5s ease-in-out infinite;
+		}
         .page:nth-child(7) {
             background: rgba(255, 255, 255, 1);
-        }/* -----------------------------------------------------------7page */
+        }/* ------------------------------------------------------------------------------------------------------7page */
+		#Explosion {
+			animation: float1 0.5s ease-in-out infinite ;
+		}
+		#e2 {
+			animation: pulse 0.2s ease-in-out infinite ;
+		}
         .page:nth-child(8) {
             background: rgba(255, 255, 255, 1);
-        }/* -----------------------------------------------------------8page */
+        }/* ------------------------------------------------------------------------------------------------------8page */
         .page:nth-child(9) {
             background: rgba(255, 255, 255, 1);
-        }/* -----------------------------------------------------------9page */
+        }/* ------------------------------------------------------------------------------------------------------9page */
 		.p9-0 {
             width: 85vw;
             position: absolute;
@@ -470,16 +490,6 @@
             margin-bottom: 5px;
             margin-right: 1.05vw;
             color: rgba(13, 19, 26, 0.5);
-            font-weight: 600;
-        }
-		.p9-0 button h5 {
-            word-wrap: break-word;
-            /* 旧版兼容 */
-            overflow-wrap: break-word;
-            width: 80px;
-            margin-top: 5px;
-            margin-bottom: 5px;
-            margin-right: 1.05vw;
             font-weight: 600;
         }
         .p9-0 button h2 {
@@ -546,8 +556,11 @@
         }
         .page:nth-child(10) {
             background: #0d131a;
-        }/* ---------------------------------------------------------10page */
+        }/* ----------------------------------------------------------------------------------------------------10page */
         .p10 {
+			position: absolute;
+            top: 40dvh;
+            transform: translateY(-50%);
             flex-direction: column;
             display: flex;
             gap: 5px;
@@ -587,15 +600,16 @@
         h3 {
             font-family:'MyCustomFont';
             font-size: 0.8rem;
-            font-weight: 100;
+            font-weight: 600;
             margin-top: 50px;
             margin-left: 0;
             margin-bottom: 15px;
-            color: rgba(208, 213, 217, 0.4);
+            color: rgba(208, 213, 217, 0.25);
             text-align: left;
             white-space: pre-wrap;
             line-height: 1.5em;
             float: left;
+			
         }
         h4 {
             width: 60px;
@@ -613,19 +627,6 @@
             float: left;
             /* ★ 新增：让文字颜色变化有渐隐渐显效果 */
             transition: color 0.5s ease;
-        }
-		h5 {
-            font-family: 'MyCustomFont';
-            font-size: 0.8rem;
-            font-weight: 500;
-			margin-top: 5px;
-            margin-left: 0;
-            margin-bottom: 15px;
-            color: rgba(13, 19, 26, 1);
-            text-align: left;
-            white-space: pre-wrap;
-            line-height: 1.5em;
-            float: left;
         }
         .dots {
             width: 100px;
@@ -681,7 +682,7 @@
         .dots button.active {
             margin-left: 0px;
             /* 激活时回到原位，即向左移动了35px */
-            border-left-color: rgba(208, 213, 217, 0.5);
+            border-left-color: rgba(208, 213, 217, 1);
             /* 注意：h4 的颜色变化由 h4 自己的过渡控制，此处不重复设置 */
         }
         .dots button.active h4 {
@@ -704,6 +705,7 @@
         #d6.active h4,
         #d7.active h4,
         #d8.active h4 {
+			font-weight: 600;
             color: rgba(13, 19, 26, 0.5);
             /* 激活时文字变为不透明 */
         }
@@ -912,10 +914,11 @@
 		color: rgba(208, 213, 217, 1);
 		}
 	.toggle h4 {
+		font-weight: 600;
 		margin: 0 0;
 		height: auto;
         width: auto;
-        color: rgba(208, 213, 217, 0.4);
+        color: rgba(208, 213, 217, 0.3);
         text-align: center;
 		float: inherit;
 		}
@@ -1090,7 +1093,7 @@
             </div>
         </div>
         <div class="page">
-            <div class="cj4">
+            <div id="Intensity" class="cj4">
                 <img src="https://lanrosx1994.github.io/SENIAE/SENIAE_CJ_PULSE_Intensity.svg" alt="PULSE-0" height="600px">
             </div>
             <div class="p4-0">
@@ -1102,7 +1105,7 @@
             </div>
         </div>
         <div class="page">
-            <div class="cj4">
+            <div id="Vibration" class="cj4">
                 <img src="https://lanrosx1994.github.io/SENIAE/SENIAE_CJ_PULSE_Vibration.svg" alt="PULSE-0" height="600px">
             </div>
             <div class="p4-0">
@@ -1114,8 +1117,8 @@
             </div>
         </div>
         <div class="page">
-            <div class="cj4">
-                <img src="https://lanrosx1994.github.io/SENIAE/SENIAE_CJ_PULSE_On_off.svg" alt="PULSE-0" height="600px">
+            <div id="Explosion" class="cj4">
+                <img id="e2" src="https://lanrosx1994.github.io/SENIAE/SENIAE_CJ_PULSE_On_off.svg" alt="PULSE-0" height="600px">
             </div>
             <div class="p4-0">
                 <button class="p4-1"><h2>爆 发   Explosion</h2></button>
@@ -1136,7 +1139,7 @@
                 <button class="p4-1"><h2>充 电   Charge</h2></button>
                 <button class="p4-2"><h3>LED灯</h3><h3 class="p4-21">LED light</h3></button>
                 <button class="p4-3" style="border-bottom: 0px solid transparent;"><h3 style="margin-top: 5px;color: rgba(13,19,26,0.50);">开机状态下，充电时指示灯<br>闪烁，电量充满灯光常亮；</h3><h3 style="margin-top: 5px;color: rgba(13,19,26,0.50);width: 250px;">When on, the indicator flashes while charging and stays solid when the battery is full.</h3></button>
-                <button class="p4-4"><h3>关闭爆发</h3><h3 class="p4-21">Disable explosion</h3></button>
+                <button class="p4-4"><h3>注意事项</h3><h3 class="p4-21">Precautions</h3></button>
                 <button class="p4-5" style="border-bottom: 0px solid transparent;"><h3 style="margin-top: 5px;color: rgba(13,19,26,0.50);">充电使用TYPE-C线,充电<br>电源标准为5伏/500毫安；</h3><h3 style="margin-top: 5px;color: rgba(13,19,26,0.50);width: 250px;height: 57.6px;">Charge using a USB‑C cable. The rated input is 5V/500mA.</h3></button>
             </div>
         </div>
